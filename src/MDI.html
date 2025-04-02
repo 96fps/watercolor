@@ -1,153 +1,76 @@
 <!DOCTYPE html>
-
 <html><head>
-
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-
 		<meta name="viewport"
-
 			content="width=device-width, initial-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
-
 		<link rel="stylesheet" type="text/css" href="MDI.css">
-
 		<script type="text/javascript" src="MDI.js" ></script>
-
 	</head>
-
 	<body>
-
 		<div id="container" style="cursor: default;">
-
 			<div id="elem" class="windowElem windowElemInactive"
-
 				onmousedown="" onmouseup=""
-
 				onpointerdown='mydragg.startMoving(this,"container",event);'
-
 				onpointerup='mydragg.stopMoving("container");'
-
 				style="width: 200px;height: 100px;top:20px;left:20px;resize: none;">
-
 				<div
-
 					style="width:calc(100% - 20px);height:calc(100% - 20px);padding:0px;margin:10px">
-
 					<h3>Lorem Ipsum</h3>
 
-
-
 				</div>
-
 			</div>
-
-
 
 			<div id="elem2" class="windowElem windowElemInactive"
-
 				onpointerdown="mydragg.makeActive('elem2');"
-
 				style="width: 360px; height: 100px; top: 145px; left: 153px; resize: none;">
-
 				<div class="windowUI_titlebar">
-
 					<div class="windowUI_titleText" onmousedown=""
-
 						onmouseup=""
-
 						onpointerdown='mydragg.startMoving(this.parentElement.parentElement,"container",event);'
-
 						onpointerup='mydragg.stopMoving("container");'>Header</div>
-
 					<div class="windowUI windowUI_max wumMax"
-
 						onclick="mydragg.toggleMax('elem2');">??</div>
-
 					<div class="windowUI windowUI_max wumUnMax"
-
 						onclick="mydragg.toggleMax('elem2');">??</div>
-
 					<div class="windowUI windowUI_min">??</div>
-
 					<div class="windowUI windowUI_close">??</div>
-
 				</div>
-
 				<div class="windowUI_content">
-
 					<div class="contained_content">
-
 						<select id="test" style="margin: 0.5ch;">
-
 							<option value="1" selected="selected">first
-
 							</option><option value="2">second
-
 							</option></select>
-
 						<div></div><div><label class="wfl-label"
-
 								for="filename">Filename:</label><input type="text" value="123"
-
 								length="16" id="filename"><div></div></div>
-
 					</div>
-
 				</div>
-
 			</div>
-
-
 
 			<div id="elem3" class="windowElem windowElemActive windowElemNotMoving"
-
 				onpointerdown="mydragg.makeActive('elem3');"
-
 				style="width: 369px; height: 492px; top: 284px; left: 118px;">
-
 				<div class="windowUI_titlebar">
-
 					<div class="windowUI_titleText" onmousedown=""
-
 						onmouseup=""
-
 						onpointerdown='mydragg.startMoving(this.parentElement.parentElement,"container",event);'
-
 						onpointerup='mydragg.stopMoving("container");'>Content</div>
-
 					<div class="windowUI windowUI_max wumMax"
-
 						onclick="mydragg.toggleMax('elem3');">&#x1F5D6;</div>
-
 					<div class="windowUI windowUI_max wumUnMax"
-
 						onclick="mydragg.toggleMax('elem3');">&#x1F5D7;</div>
-
 					<div class="windowUI windowUI_min">&#x1F5D5;</div>
-
 					<div class="windowUI windowUI_close">&#x1F5D9;</div>
-
 				</div>
-
 				<div class="windowUI_content">
-
 					<div class="contained_content">
-
 						<div onpointerdown="function();"
-
 							style="width:calc(100% - 28px);height:calc(100% - 28px);padding:10px;margin:4px;touch-action: unset; background-color: #fff;color:#000; overflow-y:auto;font-family: menlo, consolas, mono, monospace, courier;outline: 1px solid #0008;"
-
 							contenteditable="true"><div>Hello</div><div>This is a text
-
 								editor</div><div><br></div></div>
-
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
-
-
-
 	</body></html>
