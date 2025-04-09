@@ -2,7 +2,8 @@
   "name": "MDI watercolor",
   "short_name": "MDI",
   "start_url": "/MDI/MDI.html",
-  "display": "fullscreen",                                                                "background_color": "#202026",
+  "display": "standalone",
+  "background_color": "#44dd66",
   "description": "Description to be updated",
   "icons": [{
     "src": "assets/MDI_icon_16px.png",
