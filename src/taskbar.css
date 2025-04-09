@@ -1,0 +1,149 @@
+#taskbar_container {
+  font-size: 16px;
+  overflow: hidden;
+  background-color: gray;
+  position: fixed;
+  z-index: 99;
+  font-family: initial;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  height: 30px;
+  overflow: clip;
+}
+#taskbar_container a {
+  float: left;
+  display: block;
+  color: white;
+  padding: 6px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition-duration: 0.2s;
+}
+#taskbar_container a:hover {
+  background-color: lightgray;
+  color: black;
+  transition-duration: 0.2s;
+}
+
+/* #taskbar_container .tb_overflow, */
+#taskbar_overflow_container {
+  position: relative;
+  display: inline-block;
+  float: right;
+}
+/* #taskbar_container .tb_overflow_label, */
+#taskbar_overflow_label {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 6px 12px;
+  transition-duration: 0.2s;
+}
+/* #taskbar_container .tb_overflow_label:hover, */
+#taskbar_overflow_label:hover {
+  background-color: lightgray;
+  color: black;
+  transition-duration: 0.2s;
+}
+#taskbar_overflow_items {
+  display: none;
+  background-color: gray;
+  color: white;
+  /* display:block; */
+  position: fixed;
+  right: 0px;
+  width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 260px;
+  max-height: calc(100vh - 30px);
+  overflow-x: clip;
+  overflow-y: auto;
+}
+#taskbar_overflow_items a {
+  background-color: gray;
+  color: white;
+  transition-duration: 0.2s;
+  display: block;
+  width: 100%;
+}
+#taskbar_overflow_items a:hover {
+  background-color: lightgray;
+  color: black;
+  transition-duration: 0.2s;
+}
+/* #taskbar_container .tb_overflow:hover .tb_overflow_list, */
+#taskbar_overflow_container:hover #taskbar_overflow_items
+ {
+  display: block;
+  background-color: black;
+}
+/*------------------*/
+
+/* #taskbar_container .tb_overflow, */
+#taskbar_launcher_container {
+  position: relative;
+  display: inline-block;
+  float: left;
+  margin-right:1ex;
+}
+/* #taskbar_container .tb_overflow_label, */
+#taskbar_launcher_label {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 2px 12px;
+  margin:1px 1px;
+  transition-duration: 0.2s;
+  border:3px solid #888;;
+  border-style:outset;
+}
+#taskbar_launcher_container:hover #taskbar_launcher_label{
+  border-style:inset;
+}
+/* #taskbar_container .tb_overflow_label:hover, */
+#taskbar_launcher_label:hover {
+  background-color: lightgray;
+  color: black;
+  transition-duration: 0.2s;
+}
+#taskbar_launcher_items {
+  display: none;
+  background-color: gray;
+  color: white;
+  /* display:block; */
+  position: fixed;
+  left: 0px;
+  width: 260px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  width: 260px;
+  max-height: calc(100vh - 30px);
+  overflow-x: clip;
+  overflow-y: auto;
+}
+#taskbar_launcher_items a {
+  background-color: gray;
+  color: white;
+  transition-duration: 0.2s;
+  display: block;
+  width: 100%;
+}
+#taskbar_launcher_items a:hover {
+  background-color: lightgray;
+  color: black;
+  transition-duration: 0.2s;
+}
+/* #taskbar_container .tb_overflow:hover .tb_overflow_list, */
+#taskbar_launcher_container:hover #taskbar_launcher_items
+ {
+  display: block;
+  background-color: black;
+
+}
+
+
+
+
+/*UP_BUTTON*/
+/* #goUpBtn {display:none; opacity:0.5;transition-duration:0.2s; position:fixed; width:80px; padding-bottom:10px;padding-top:5px;font-size:2em;bottom:1em; right:1em; border:1px gray solid; background-color:gray;color: white; cursor: pointer; border-radius:5px; z-index:3; } */
+/* #goUpBtn:hover {background-color:lightgray; color:gray; border:1px solid lightgray;opacity:1;transition-duration:0.2s;} */

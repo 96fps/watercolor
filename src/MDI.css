@@ -8,7 +8,10 @@ body {
 	overscroll-behavior: none;
 	touch-action: none;
 }
-#container {
+body{
+	margin:0px;
+}
+#windowing_toplevel_container {
 	position: absolute;
 	background-color: #2e9c9f;
 	background-color: #456;
@@ -23,6 +26,10 @@ body {
 	padding: 0px;
 	overflow: clip;
 }
+#windowing_toplevel_container {
+	height: calc(100% - 30px);
+	margin-top: 30px;
+}
 .windowElem {
 	resize: both;
 	position: absolute;
@@ -31,7 +38,25 @@ body {
 	z-index: 10;
 	border-radius: 1px !important;
 }
+.widgetElem{
+	
+	position: absolute;
+	user-select: none;
+	z-index: 0;
+	color: #ddd;
+	background-color: #2a3e5e;
+	background-color: #0004;
+	border-color: 1px solid #0008;
+	/* box-shadow: 2px 4px 4px #0004; */
+	box-shadow: none;
+	border-radius:8px;
+	padding:2px 8px;
+}
+.widgetElem h3{
+	/* margin-block:none; */
+	margin-block-start: 0px;
 
+}
 .windowElem.windowElemInactive {
 	border-color: 1px solid #2a3e5e;
 	box-shadow: 2px 4px 4px #0008;
@@ -234,7 +259,7 @@ body {
 	padding-left: 0.5em;
 	line-height: 22px;
 	color: white;
-	font-family: sans;
+	font-family: sans-serif;
 	font-weight: bold;
 	align-content: center;
 }
@@ -302,6 +327,11 @@ div.windowElemMaximized > div.windowUI_content {
 	font-size: 10pt;
 	margin: 0.5ch;
 }
+div.windowing_toplevel_container{
+	z-index:-10;
+	cursor: default;
+}
+iframe.content_iframe{ border:none;}
 .contained_content {
 	width: calc(100% - 6px);
 	height: calc(100% - 6px);
@@ -310,6 +340,9 @@ div.windowElemMaximized > div.windowUI_content {
 	background-color: #dfd6d1;
 	background-color: #eae3e0;
 	position: absolute;
+}
+.window_frame_inside{
+	width:calc(100% - 28px);height:calc(100% - 28px);padding:10px;margin:4px;
 }
 div.windowElemMaximized > div.windowUI_content > div.contained_content {
 	width: calc(100% - 0px);
