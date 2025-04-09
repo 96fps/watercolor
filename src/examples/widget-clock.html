@@ -1,0 +1,58 @@
+<html>
+<head>
+</head>
+<script>
+var clockDisplay;
+var dateDisplay;
+function displayClock(){
+  var moment=new Date();
+  var timeStr = ""
+  timeStr += moment.getHours();
+  timeStr += ':';
+  timeStr += moment.getMinutes();
+
+  const options = { 
+    weekday: "short",
+    month: "long" ,
+    day: "numeric"
+  };
+  var dateStr = ""
+  var fmt = new Intl.DateTimeFormat("en-US", options).format(moment);
+  dateStr += fmt;
+  clockDisplay.textContent = timeStr;
+  dateDisplay.textContent = dateStr;
+  setTimeout(displayClock, 1000); 
+}
+document.addEventListener("readystatechange", (event) => {
+  clockDisplay = document.getElementById('clock');
+  dateDisplay = document.getElementById('date');
+  if (document.readyState == "interactive") {
+	displayClock();
+    addEventListener("resize", (event) => {
+//	displayClock();
+  //    reflowTaskbar();
+//			reportWindowSize(wm_toplevel_container);
+    });
+  }
+});
+</script>
+<style>
+body{
+  color: #eee;
+}
+#clock{
+  display:block;
+  margin: 0px;
+  font-size: 200%;
+}
+#date {
+  display:block;
+  margin: 0px;
+  font-size: 90%;
+}
+</style>
+<body>
+<span id='clock'>Time is </span>
+<span id='date'>Date is </span>
+</body>
+</html>
