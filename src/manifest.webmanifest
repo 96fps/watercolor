@@ -3,7 +3,7 @@
   "short_name": "MDI",
   "start_url": "/MDI/MDI.html",
   "display": "standalone",
-  "background_color": "#44dd66",
+  "background_color": "#229966",
   "description": "Description to be updated",
   "icons": [{
     "src": "assets/MDI_icon_16px.png",
