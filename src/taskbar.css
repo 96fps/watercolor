@@ -1,23 +1,32 @@
 #taskbar_container {
+  display:block;
   font-size: 16px;
   overflow: hidden;
   background-color: gray;
+  background-color: #048;
+  background-color: #eae3e0;
+  color:#222;
   position: fixed;
   z-index: 99;
   font-family: initial;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  height: 30px;
+  height: 36px;
+  line-height:26px;
   overflow: clip;
+  font-family:"sans serif";
+  border:0px outset #eae3e0;
+  border-bottom-width:1px;
 }
 #taskbar_container a {
   float: left;
   display: block;
   color: white;
+  color:#222;
   padding: 6px 12px;
   text-decoration: none;
-  font-weight: bold;
+/*  font-weight: bold;*/
   transition-duration: 0.2s;
 }
 #taskbar_container a:hover {
@@ -34,10 +43,13 @@
 }
 /* #taskbar_container .tb_overflow_label, */
 #taskbar_overflow_label {
+  background-color: #eae3e0;
   color: white;
+  color:#222;
   font-weight: bold;
   font-size: 16px;
   padding: 6px 12px;
+  height:100%;
   transition-duration: 0.2s;
 }
 /* #taskbar_container .tb_overflow_label:hover, */
@@ -89,22 +101,40 @@
 }
 /* #taskbar_container .tb_overflow_label, */
 #taskbar_launcher_label {
+  display:block;
   color: white;
+  background-color: #eae3e0;
+  color:#222;
   font-weight: bold;
   font-size: 16px;
-  padding: 2px 12px;
+  height: calc(100% - 4px);
+  line-height: calc(36px - 12px);
+  height: calc(36px - 12px);
+  padding: 1px 12px;
+  overflow:clip;
   margin:1px 1px;
   transition-duration: 0.2s;
-  border:3px solid #888;;
+  border:3px solid #8880;;
+  border:4px solid #888;;
+  border-color: #eae3e066;
   border-style:outset;
+  border-radius:3px;
+  outline: 1px solid #0008;
+  outline-offset:-1px;
 }
 #taskbar_launcher_container:hover #taskbar_launcher_label{
+  border-color: #eae3e088;
+  border-color: #2468;
   border-style:inset;
+  outline: 1px solid #0008;
+  outline-offset:-1px;
+  border-radius:2px;
 }
 /* #taskbar_container .tb_overflow_label:hover, */
 #taskbar_launcher_label:hover {
-  background-color: lightgray;
-  color: black;
+  background-color: #246c;
+  border-color: #246;
+  color: #fff;
   transition-duration: 0.2s;
 }
 #taskbar_launcher_items {
