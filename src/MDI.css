@@ -7,6 +7,9 @@ html,
 body {
 	overscroll-behavior: none;
 	touch-action: none;
+/*background-color:#888 !important;*/
+background-color: #456 !important;
+background-color: #202530 !important;
 }
 body{
 	margin:0px;
@@ -262,6 +265,7 @@ body{
 	font-family: sans-serif;
 	font-weight: bold;
 	align-content: center;
+/*font-size:22px !important;*/
 }
 .windowElemActive .windowUI_titleText {
 	color: white;
@@ -308,6 +312,7 @@ body{
 	padding: 0px; /*! margin-top:2px; */
 	margin: 2px;
 	top: 28px;
+/*font-size:16px !important;*/
 }
 div.windowElemMaximized > div.windowUI_content {
 	/*! background-color: #dfd6d1; */
@@ -422,4 +427,13 @@ div.windowElemMaximized > div.windowUI_content > div.contained_content {
 	outline: 1px solid #0048;
 	/*                filter:saturate(50%);*/
 	z-index: 0;
+}
+iframe.content_iframe{
+border:none;
+}
+div.contained_content{
+/*border: 1px solid #0008 !important;*/
+outline: 1px solid #0004 !important;
+overflow:clip;
+border-radius:2px;
 }

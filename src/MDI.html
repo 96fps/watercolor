@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html><head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta name="viewport"
-			content="width=device-width, initial-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
-		<link rel="stylesheet" type="text/css" href="MDI.css">
-		<link rel="stylesheet" type="text/css" href="taskbar.css">
-		<link rel="stylesheet" type="text/css" href="webfont-UnifontExMono.css">
-		<link rel="manifest" href="manifest.webmanifest">
-		<script type="text/javascript" src="sw.js" ></script>
-		<script type="text/javascript" src="MDI.js" ></script>
-		<script type="text/javascript" src="taskbar.js" ></script>
-		<script>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+<meta http-equiv="Cache-control" content="no-cache"/>
+<link rel="stylesheet" type="text/css" href="MDI.css">
+<link rel="stylesheet" type="text/css" href="taskbar.css">
+<link rel="stylesheet" type="text/css" href="webfont-UnifontExMono.css">
+<link rel="manifest" href="manifest.webmanifest">
+<script type="text/javascript" src="sw.js" ></script>
+<script type="text/javascript" src="MDI.js" ></script>
+<script type="text/javascript" src="taskbar.js" ></script>
+<script>
 var wm_toplevel_container
 			
 document.addEventListener("readystatechange", (event) => {
@@ -84,7 +84,6 @@ document.addEventListener("readystatechange", (event) => {
 					<div class="windowUI windowUI_close">&#x1F5D9;</div>
 				</div>
 				<div class="windowUI_content">
-					<!-- <div class="window_frame_inside"> -->
 					<div class="contained_content">
 						
 						<iframe
@@ -96,7 +95,6 @@ document.addEventListener("readystatechange", (event) => {
 						src="examples/form_A.html">
 					</iframe>
 					</div>
-					<!-- </div> -->
 				</div>
 			</div>
 
@@ -107,7 +105,7 @@ document.addEventListener("readystatechange", (event) => {
 					<div class="windowUI_titleText" onmousedown=""
 						onmouseup=""
 						onpointerdown="my_wmfunc.startMoving(this.parentElement.parentElement,wm_toplevel_container,event);"
-						onpointerup="my_wmfunc.stopMoving(this.parentElement.parentElement,wm_toplevel_container);">Content</div>
+						onpointerup="my_wmfunc.stopMoving(this.parentElement.parentElement,wm_toplevel_container);">Klondike</div>
 					<div class="windowUI windowUI_max wumMax"
 						onclick="my_wmfunc.toggleMax(this.parentElement.parentElement,wm_toplevel_container);">&#x1F5D6;</div>
 					<div class="windowUI windowUI_max wumUnMax"
@@ -116,18 +114,16 @@ document.addEventListener("readystatechange", (event) => {
 					<div class="windowUI windowUI_close">&#x1F5D9;</div>
 				</div>
 				<div class="windowUI_content">
-					<!-- <div class="window_frame_inside"> -->
 					<div class="contained_content">
 						<iframe
-						id="inlineFrameExampleB"
-						title="Inline Frame Example"
+						id="inlineFrameKlondike"
+						title="Inline Frame ExampleK"
 						class="content_iframe"
 						width="100%"
 						height="100%"
-						src="examples/form_B.html">
+						src="examples/accessories/games/klondike-solitaire/klondike.html">
 					</iframe>
 					</div>
-					<!-- </div> -->
 				</div>
 			</div>
 		</div>
