@@ -1,25 +1,36 @@
 <!doctype html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no, interactive-widget=resizes-content" />
+<meta http-equiv="Cache-control" content="no-cache"/>
+<title>Klondike Solitaire</title>
+<link rel="stylesheet" type="text/css" href="klondike.css">
+<link rel="stylesheet" type="text/css" href="/webfont-UnifontExMono.css">
+<!--link rel="manifest" href="manifest.webmanifest"-->
+<script type="text/javascript" src="klondike.js" ></script>
 </head>
 <body>
+  <div id='toolbar'>
+    <a>Game</a
+    ><a>Help</a>
+  </div>
   <div id='cardgame-area'>
     <div id='top-row' class='card-shelf'>
-      <div id='card-deck'></div>
-      <div id='draw-pile'></div>
-      <div id='ace-stack_1'></div>
-      <div id='ace-stack_2'></div>
-      <div id='ace-stack_3'></div>
-      <div id='ace-stack_4'></div>
+      <div id='card-deck'>Deck</div>
+      <div id='draw-pile'>Draw</div>
+      <div class='ace-stack' id='ace-stack_1'>A1</div>
+      <div class='ace-stack' id='ace-stack_2'>A2</div>
+      <div class='ace-stack' id='ace-stack_3'>A3</div>
+      <div class='ace-stack' id='ace-stack_4'>A4</div>
     </div>
     <div id='lower-area'>
-      <div class='card-stack' id='card-stack_1'></div>
-      <div class='card-stack' id='card-stack_2'></div>
-      <div class='card-stack' id='card-stack_3'></div>
-      <div class='card-stack' id='card-stack_4'></div>
-      <div class='card-stack' id='card-stack_5'></div>
-      <div class='card-stack' id='card-stack_6'></div>
-      <div class='card-stack' id='card-stack_7'></div>
+      <div class='card-stack' id='card-stack_1'>S1</div>
+      <div class='card-stack' id='card-stack_2'>S2</div>
+      <div class='card-stack' id='card-stack_3'>S3</div>
+      <div class='card-stack' id='card-stack_4'>S4</div>
+      <div class='card-stack' id='card-stack_5'>S5</div>
+      <div class='card-stack' id='card-stack_6'>S6</div>
+      <div class='card-stack' id='card-stack_7'>S7</div>
     </div>
   </div>
 </body>
