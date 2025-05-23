@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>SVG test</title>
+  <script src="SVG%20test_files/svg.min.js"></script>
+  <style>
+    body{
+        background-color: #000;
+        color:#888;
+    }
+
+.btn{
+  font-family:sans-serif; 
+  zoom: 1.5;
+}
+
+.btn{
+  transition-duration:.2s;
+  /* padding:7px; */
+  background-color:gray; color:white; border-radius:10px; font-weight:bold;max-width:20%;margin-bottom:.5em;font-size:10px;border:1px gray solid;
+}
+.btn:hover {
+  /* padding:7px; */
+  background-color:lightgray;color:black; 
+  border-radius:10px;transition-duration: .2s;border:1px lightgray solid;cursor:pointer;
+}
+.btn.sel{
+  outline:2px #fff solid; outline-offset:-3px;
+}
+.btn.sel::before{
+  /* content:'\2611\A0'; */
+}
+.btn.sel::before {
+	/* content: '\2611\A0'; */
+	width: 0px;
+	display: inline-block;
+	text-align: right;
+	/* right: 01px; */
+	position: relative;
+	right: 9px;
+}
+.btn.sel{
+	/* padding: 7px 8px 7px 16px; */
+}
+.btn{
+	padding: 7px 12px 7px 12px;
+}
+
+
+.btn_rate_fast{
+  
+  background-color:red; 
+  color:white; 
+}
+.btn_rate_mid
+{
+  background-color:#f80; 
+  color:white; 
+}
+.btn_rate_slow{
+  background-color:#08f; 
+  color:white; 
+}
+
+
+.redline{
+	filter: drop-shadow(#f00 0px 0px 1px);
+}
+
+.orangeline{
+	filter: drop-shadow(#f50 0px 0px 1px);
+}
+
+.yellowline{
+	filter: drop-shadow(#FC0 0px 0px 1px);
+}
+
+.greenline{
+	filter: drop-shadow(#0f0 0px 0px 1px);
+}
+#myRectId{
+	filter:blur(1px);
+}
+  </style>
+  <script src="M5.js"></script>
+</head>
+<body>
+
+
+  
+   <svg version="1.1" id="myRectId" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0%" y="0%" width="100%" height="100%" viewBox="-1 -1 90.0 38.0" enable-background="new 0 0 88.0 36.0" xml:space="preserve" svgjs="http://svgjs.com/svgjs">
+  <defs stroke-opacity="0" stroke-width="0" fill-opacity="1">
+    <filter id="red-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
+       <!-- blur the text at different levels-->
+      <feGaussianBlur in="SourceGraphic" stdDeviation=".5" result="blur5"></feGaussianBlur>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.0" result="blur10"></feGaussianBlur>
+      <!-- merge all the blurs except for the first one -->
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur10"></feMergeNode>
+      </feMerge>
+      <!-- recolour the merged blurs red-->
+      <feColorMatrix result="red-blur" in="blur-merged" type="matrix" values="0.5 0 0 0 0
+                             0 0.5 0 0 0
+                             0 0 0.5 0 0
+                             0 0 0 1 0"></feColorMatrix>
+      <feMerge>
+        <!-- <feMergeNode in="red-blur"/>       largest blurs coloured red -->
+        <!-- <feMergeNode in="blur10"/>       largest blurs coloured red -->
+        <feMergeNode in="blur5"></feMergeNode>          <!-- smallest blur left white -->
+        <feMergeNode in="SourceGraphic"></feMergeNode>  <!-- original white text -->
+      </feMerge>
+    </filter>
+  </defs>    
+    
+	<path fill="#000000" stroke="#000000" fill-opacity="1.000" stroke-opacity="0.17331120772112887" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square" d="M-1.00,-1.00L89.00,-1.00L89.00,37.00L-1.00,37.00z"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="0.02227259706114482" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M2.00,0.00L2.00,28.00"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="0.012668655263615578" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M0.00,34.00L16.00,34.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.6576773891664628" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M0.00,30.00L20.00,30.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.05902314675546493" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M4.00,26.00L20.00,26.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.5935538437227326" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M4.00,22.00L20.00,22.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.5088982267617778" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M6.00,0.00L6.00,20.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.09365045939710663" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M8.00,18.00L20.00,18.00"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="0.2239796812274519" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M22.00,16.00L22.00,36.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.9417761199999999" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M8.00,14.00L32.00,14.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.0009747893660481022" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M24.00,18.00L44.00,18.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.0802935626255943" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M26.00,20.00L26.00,32.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.8499529482999999" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M34.00,20.00L34.00,32.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.009802763946744768" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M36.00,34.00L24.00,34.00"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="0.0010260940695243181" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M40.00,34.00L52.00,34.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.8499529482999999" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M54.00,24.00L54.00,36.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="3.7860350483093014e-8" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M40.00,30.00L52.00,30.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.9417761199999999" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M56.00,26.00L76.00,26.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.18243285023276723" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M14.00,0.00L14.00,12.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.11497819617357957" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M18.00,0.00L18.00,12.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.02115896720808758" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M40.00,10.00L24.00,10.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.0010260940695243181" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M24.00,2.00L52.00,2.00"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="1" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M40.00,14.00L52.00,14.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="3.4581505899142598e-15" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M56.00,14.00L68.00,14.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.10922928636490059" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M56.00,10.00L68.00,10.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.3553826116637238" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M56.00,6.00L68.00,6.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.9417761199999999" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M56.00,2.00L88.00,2.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.32073280702651075" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M70.00,4.00L70.00,20.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.8074553008849998" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M72.00,10.00L84.00,10.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.0013260782474682226" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M72.00,6.00L88.00,6.00"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="0.010861788306642405" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M86.00,8.00L86.00,16.00"></path>
+	<path fill="#FFFFFF" stroke="#07FF00" class="greenline" fill-opacity="1.000" stroke-opacity="0.0010260940695243181" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M72.00,18.00L88.00,18.00"></path>
+	<path fill="#FFFFFF" stroke="#FF0000" class="redline" fill-opacity="1.000" stroke-opacity="0.00006109215830183054" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M78.00,20.00L78.00,32.00"></path>
+	<path fill="#FFFFFF" stroke="#FF5500" class="orangeline" fill-opacity="1.000" stroke-opacity="0.18243285023276723" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M88.00,22.00L80.00,22.00"></path>
+	<path fill="#FFFFFF" stroke="#FF5500" class="orangeline" fill-opacity="1.000" stroke-opacity="0.004780562703003219" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M88.00,26.00L80.00,26.00"></path>
+	<path fill="#FFFFFF" stroke="#FF5500" class="orangeline" fill-opacity="1.000" stroke-opacity="0.43631661716987913" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M88.00,30.00L80.00,30.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.04121806471215596" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M30.00,20.00L30.00,32.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.009802763946744768" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M10.00,0.00L10.00,12.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.00019876620540161988" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M22.00,0.00L22.00,12.00"></path>
+	<path fill="#FFFFFF" stroke="#FFCC00" class="yellowline" fill-opacity="1.000" stroke-opacity="0.2239796812274519" fill-rule="nonzero" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="butt" d="M34.00,20.00L34.00,32.00"></path>
+</svg>
+<button class="btn" id="">Run</button>
+<button class="btn" id="stop">Stop</button>
+<button class="btn" id="idle">Idle</button>
+<button class="btn" id="step">Step</button>
+<button class="btn" id="">Hold</button>
+<button class="btn" id="">Go</button>
+
+<button class="btn sel" id="rate">Rate</button>
+
+<button class="btn" id="">Fail</button>
+<button class="btn" id="">Reset</button>
+<br>will remove:<br>
+<button class="btn" id="slow">Slow</button>
+<button class="btn sel" id="fast">Fast</button>
+
+</body></html>

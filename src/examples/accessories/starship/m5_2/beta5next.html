@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>SVG test</title>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+  <style>
+    body{
+        background-color: #000;
+        color:#888;
+    }
+
+.btn{font-family:sans-serif; zoom: 1.5;}
+.btn{transition-duration:.2s;padding:7px;background-color:gray; color:white; border-radius:10px; font-weight:bold;max-width:20%;margin-bottom:.5em;font-size:10px;border:1px gray solid;}
+.btn:hover {padding:7px;background-color:lightgray;color:black; border-radius:10px;transition-duration: .2s;border:1px lightgray solid;cursor:pointer;}
+.btn.sel{outline:2px #fff solid; outline-offset:-3px;}
+.btn.sel::before{content:'\2611\A0';}
+.btn.sel{
+	padding: 7px 12px;
+	/* filter: drop-shadow(blue 0px 0px 4px); */
+	/* filter: blur(3px); */
+	/* filter: drop-shadow(blue 0px 0px 4px) blur(1px); */
+
+}
+
+.redline{
+	filter: drop-shadow(#f00 0px 0px 1px);
+}
+
+.orangeline{
+	filter: drop-shadow(#f50 0px 0px 1px);
+}
+
+.yellowline{
+	filter: drop-shadow(#FC0 0px 0px 1px);
+}
+
+.greenline{
+	filter: drop-shadow(#0f0 0px 0px 1px);
+}
+#myRectId{
+	filter:blur(1px);
+}
+  </style>
+  <script>
+var draw
+
+// SVG.on(document, 'DOMContentLoaded', function() {
+//   draw =SVG('#myRectId');
+// //   rect.animate(2000, 1000, 'now').attr({ fill: '#f03' })
+// //   var runner = new SVG.Runner(1000)
+// // runner.move(100, 100)
+//     // draw.children().length
+// // runner.element('#myRectId')
+// var intervalId;
+// if (!intervalId) {
+//     intervalId =  setInterval(randomize(), 500);
+//   }
+
+// })
+// variable to store our intervalID
+let intervalId;
+let timeoutId;
+var draw
+var draw2
+function changeColor() {
+    document.getElementById("start").classList.add('sel');
+    document.getElementById("start2").classList.remove('sel');
+    document.getElementById("stop").classList.remove('sel');
+  if (intervalId) {
+    stopTextColor();
+    clearTimeout(timeoutId);
+  }
+  // check if an interval has already been set up
+  if (!intervalId) {
+    intervalId = setInterval(flashText, 10);
+  }
+}
+
+function flashText() {
+//   const oElem = document.getElementById("my_box");
+//   oElem.className = oElem.className === "go" ? "stop" : "go";
+
+    
+draw2.children()[0].attr({'stroke-opacity': 0.0 });
+    let max = 0.0;
+    let count = 0;
+    draw2.children().forEach(e =>
+    {
+
+        if (e.attr('stroke-opacity') >= max ){
+            max = e.attr('stroke-opacity');
+        }
+
+        if (e.attr('stroke-opacity') >= 0.25 ){
+            count++;
+        }
+        e.attr({'stroke-width': 2.0 });
+        // e.attr({'stroke-width': ((e.attr('stroke-width')+0.05) )});
+        // e.attr({'stroke-width': ((e.attr('stroke-width')*1.1) )});
+        // e.attr({'stroke-linecap': "round"});
+        // console.log(e);
+        // e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.95) + 0.001)});
+		
+		if (e.attr('stroke-opacity') >= 0.95 ){
+            e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.98) + 0.005)});
+        }else{
+
+            e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.95) + 0.000)});
+        }
+
+        //e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.9) + ( Math.pow(Math.random() ,100)))});
+        if(Math.random() >=  0.99 ){
+            e.attr({'stroke-opacity': 1.0 });
+            // e.attr({'filter': "blurMe" });
+             
+            // e.attr({'stroke-width': 0.5 });
+            // e.attr({'stroke-width': 0.5 });
+        }
+        // e.attr({'stroke-width': 1.0 });
+        e.attr({'stroke-width': 1.5 });
+    } 
+    )
+    let rand = Math.floor(Math.random()*draw2.children().length)
+    // console.log(rand);
+    // console.log(max);
+    if ( max <= 0.5 || ( count <= 9 )) {
+        draw2.children()[rand].attr({'stroke-opacity': 1.0 });
+    }
+    draw2.children()[0].attr({'fill-opacity': 1 });
+    draw2.children()[0].attr({'stroke-opacity': 0.0 });
+    draw2.children()[0].attr({'stroke-width': 0.0 });
+    // draw2.children()[1].attr({'filter': null });
+}
+function changeColorB() {
+    document.getElementById("start").classList.remove('sel');
+    document.getElementById("start2").classList.add('sel');
+    document.getElementById("stop").classList.remove('sel');
+    
+  if (intervalId) {
+    stopTextColor();
+    clearTimeout(timeoutId);
+  }
+
+  // check if an interval has already been set up
+  if (!intervalId) {
+    intervalId = setInterval(flashTextB, 10);
+  }
+}
+
+function flashTextB() {
+//   const oElem = document.getElementById("my_box");
+//   oElem.className = oElem.className === "go" ? "stop" : "go";
+
+    draw2.children()[0].attr({'stroke-opacity': 0.0 });
+    let max = 0.0;
+    let count = 0;
+	
+    draw2.children().forEach(e =>
+    {
+
+        if (e.attr('stroke-opacity') >= max ){
+            max = e.attr('stroke-opacity');
+        }
+
+        if (e.attr('stroke-opacity') >= 0.25 ){
+            count++;
+        }
+        e.attr({'stroke-width': 2.0 });
+        // e.attr({'stroke-width': ((e.attr('stroke-width')+0.05) )});
+        // e.attr({'stroke-width': ((e.attr('stroke-width')*1.1) )});
+        // e.attr({'stroke-linecap': "round"});
+        // console.log(e);
+        if (e.attr('stroke-opacity') >= 0.90 ){
+            e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.98) + 0.005)});
+        }else{
+
+            e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.95) + 0.000)});
+        }
+        //e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.9) + ( Math.pow(Math.random() ,100)))});
+        if(Math.random() >=  0.999 ){
+            // e.attr({'stroke-opacity': 1.0 });
+            // e.attr({'filter': "blurMe" });
+             
+            // e.attr({'stroke-width': 0.5 });
+            // e.attr({'stroke-width': 0.5 });
+		}
+        // e.attr({'stroke-width': 1.0 });
+        e.attr({'stroke-width': 1.5 });
+    } 
+    )
+
+    let rand = Math.floor(Math.random()*draw2.children().length)
+    // console.log(rand);
+    // console.log(max);
+    if ( max <= 0.5 || ( count <= 2 + Math.random()+ Math.random() )) {
+        draw2.children()[rand].attr({'stroke-opacity': 1.0 });
+    }
+
+    draw2.children()[0].attr({'fill-opacity': 1 });
+    draw2.children()[0].attr({'stroke-opacity': 0.0 });
+    draw2.children()[0].attr({'stroke-width': 0.0 });
+    // draw2.children()[1].attr({'filter': null });
+}
+
+function changeColorC() {
+    document.getElementById("start").classList.remove('sel');
+    document.getElementById("start2").classList.remove('sel');
+    document.getElementById("stop").classList.add('sel');
+    
+    if (intervalId) {
+      stopTextColor();
+    }
+  
+    // check if an interval has already been set up
+    if (!intervalId) {
+      intervalId = setInterval(flashTextC, 10);
+      timeoutId = setTimeout(() => {
+        stopTextColor();
+        }, 1000);
+
+    }
+  }
+function flashTextC() {
+//   const oElem = document.getElementById("my_box");
+//   oElem.className = oElem.className === "go" ? "stop" : "go";
+
+    
+    draw2.children().forEach(e =>
+    {
+
+        
+        e.attr({'stroke-width': 2.0 });
+        // e.attr({'stroke-width': ((e.attr('stroke-width')+0.05) )});
+        // e.attr({'stroke-width': ((e.attr('stroke-width')*1.1) )});
+        // e.attr({'stroke-linecap': "round"});
+        // console.log(e);
+        e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.95) + 0.005)});
+        //e.attr({'stroke-opacity': ((e.attr('stroke-opacity')*0.9) + ( Math.pow(Math.random() ,100)))});
+        // if(Math.random() >=  0.995 ){
+        //     e.attr({'stroke-opacity': 1.0 });
+        //     // e.attr({'filter': "blurMe" });
+             
+        //     // e.attr({'stroke-width': 0.5 });
+        //     // e.attr({'stroke-width': 0.5 });
+        // }
+        e.attr({'stroke-width': 1.5 });
+    } 
+    )
+    draw2.children()[0].attr({'fill-opacity': 1 });
+    draw2.children()[0].attr({'stroke-opacity': 0.0 });
+    draw2.children()[0].attr({'stroke-width': 0.0 });
+    // draw2.children()[1].attr({'filter': null });
+}
+
+function stopTextColor() {
+  clearInterval(intervalId);
+  // release our intervalId from the variable
+  intervalId = null;
+  clearTimeout(timeoutId);
+}
+SVG.on(document, 'DOMContentLoaded', function() {
+    draw2 =SVG('#myRectId');
+    // draw2 = draw.clone();
+    // draw2.addTo(draw);
+document.getElementById("start").addEventListener("click",  changeColor);
+document.getElementById("start2").addEventListener("click", changeColorB);
+document.getElementById("stop").addEventListener("click", changeColorC);
+changeColorB();
+})
+
+  </script>
+</head>
+<body>
+
+
+  
+   <svg
+	version="1.1"
+    id="myRectId"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	x="0%" y="0%"
+	width="100%" height="100%"
+	viewBox="-1 -1 90.0 38.0"
+	enable-background="new 0 0 88.0 36.0"
+	xml:space="preserve">
+  <defs>
+    <filter id="red-glow" filterUnits="userSpaceOnUse"
+            x="-50%" y="-50%" width="200%" height="200%">
+       <!-- blur the text at different levels-->
+      <feGaussianBlur in="SourceGraphic" stdDeviation=".5" result="blur5"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.0" result="blur10"/>
+      <!-- merge all the blurs except for the first one -->
+      <feMerge result="blur-merged">
+        <feMergeNode in="blur10"/>
+      </feMerge>
+      <!-- recolour the merged blurs red-->
+      <feColorMatrix result="red-blur" in="blur-merged" type="matrix"
+                     values="0.5 0 0 0 0
+                             0 0.5 0 0 0
+                             0 0 0.5 0 0
+                             0 0 0 1 0" />
+      <feMerge>
+        <!-- <feMergeNode in="red-blur"/>       largest blurs coloured red -->
+        <!-- <feMergeNode in="blur10"/>       largest blurs coloured red -->
+        <feMergeNode in="blur5"/>          <!-- smallest blur left white -->
+        <feMergeNode in="SourceGraphic"/>  <!-- original white text -->
+      </feMerge>
+    </filter>
+  </defs>    
+    
+	<path
+		fill="#000000"
+		stroke="#000000"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="0.0"
+		stroke-linejoin="miter"
+		stroke-linecap="square"
+		d="M-1.00,-1.00L89.00,-1.00L89.00,37.00L-1.00,37.00z"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M2.00,0.00L2.00,28.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M0.00,34.00L16.00,34.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M0.00,30.00L20.00,30.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M4.00,26.00L20.00,26.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M4.00,22.00L20.00,22.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M6.00,0.00L6.00,20.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M8.00,18.00L20.00,18.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M22.00,16.00L22.00,36.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M8.00,14.00L32.00,14.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M24.00,18.00L44.00,18.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M26.00,20.00L26.00,32.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M34.00,20.00L34.00,32.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M36.00,34.00L24.00,34.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M40.00,34.00L52.00,34.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M54.00,24.00L54.00,36.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M40.00,30.00L52.00,30.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M56.00,26.00L76.00,26.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M14.00,0.00L14.00,12.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M18.00,0.00L18.00,12.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M40.00,10.00L24.00,10.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M24.00,2.00L52.00,2.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M40.00,14.00L52.00,14.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M56.00,14.00L68.00,14.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M56.00,10.00L68.00,10.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M56.00,6.00L68.00,6.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M56.00,2.00L88.00,2.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M70.00,4.00L70.00,20.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M72.00,10.00L84.00,10.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M72.00,6.00L88.00,6.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M86.00,8.00L86.00,16.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#07FF00"
+		class="greenline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M72.00,18.00L88.00,18.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF0000"
+		class="redline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M78.00,20.00L78.00,32.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF5500"
+		class="orangeline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M88.00,22.00L80.00,22.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF5500"
+		class="orangeline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M88.00,26.00L80.00,26.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FF5500"
+		class="orangeline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M88.00,30.00L80.00,30.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M30.00,20.00L30.00,32.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M10.00,0.00L10.00,12.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M22.00,0.00L22.00,12.00"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#FFCC00"
+		class="yellowline"
+		fill-opacity="1.000"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="3.132"
+		stroke-linejoin="miter"
+		stroke-linecap="butt"
+		d="M34.00,20.00L34.00,32.00"/>
+</svg>
+
+<button class="btn" id="start">Fast</button>
+<button class="btn" id="start2">Slow</button>
+<button class="btn" id="stop">Stop</button>
+</body>
+</html>
+s

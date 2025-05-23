@@ -52,51 +52,6 @@ document.addEventListener("readystatechange", (event) => {
 			<a id='taskbar_item_2' class="tb_item">Display Label</a>
 		</div>
 		<div id="windowing_toplevel_container">
-			<div id="elem" class="widgetElem"
-				onmousedown="" onmouseup=""
-				style="width: 200px;height: 100px;top:5px;right:5px;">
-				<div
-					style="width:calc(100% - 20px);height:calc(100% - 20px);padding:0px;margin:10px">
-					<iframe
-                                                id="inlineFrameExampleD"
-                                                title="Inline Frame Example"
-                                                class="content_iframe"
-                                                width="100%"
-                                                height="100%"
-                                                src="examples/widget-clock.html">
-					</iframe>
-				</div>
-			</div>
-
-			<div id="elem2" class="windowElem windowElemInactive"
-				onpointerdown="my_wmfunc.makeActive(this,wm_toplevel_container);"
-				style="width: 360px; height: 100px; top: 145px; left: 153px; resize: none;">
-				<div class="windowUI_titlebar">
-					<div class="windowUI_titleText" onmousedown=""
-						onmouseup=""
-						onpointerdown="my_wmfunc.startMoving(this.parentElement.parentElement,wm_toplevel_container,event);"
-						onpointerup="my_wmfunc.stopMoving(this.parentElement.parentElement,wm_toplevel_container);">Header</div>
-					<div class="windowUI windowUI_max wumMax"
-						onclick="my_wmfunc.toggleMax(this.parentElement.parentElement,wm_toplevel_container,wm_toplevel_container);">&#x1F5D6;</div>
-					<div class="windowUI windowUI_max wumUnMax"
-						onclick="my_wmfunc.toggleMax(this.parentElement.parentElement,wm_toplevel_container,wm_toplevel_container);">&#x1F5D7;</div>
-					<div class="windowUI windowUI_min">&#x1F5D5;</div>
-					<div class="windowUI windowUI_close">&#x1F5D9;</div>
-				</div>
-				<div class="windowUI_content">
-					<div class="contained_content">
-						
-						<iframe
-						id="inlineFrameExampleA"
-						title="Inline Frame Example"
-						class="content_iframe"
-						width="100%"
-						height="100%"
-						src="examples/form_A.html">
-					</iframe>
-					</div>
-				</div>
-			</div>
 
 			<div id="elem3" class="windowElem windowElemActive windowElemNotMoving"
 				onpointerdown="my_wmfunc.makeActive(this,wm_toplevel_container);"
@@ -121,7 +76,7 @@ document.addEventListener("readystatechange", (event) => {
 						class="content_iframe"
 						width="100%"
 						height="100%"
-						src="examples/accessories/GLgears/hello_world_gles_resizable_GLUT_fix.html">
+						src="examples/accessories/GLgears/glxgears.html">
 					</iframe>
 					</div>
 				</div>
