@@ -439,3 +439,22 @@ outline: 1px solid #0004 !important;
 overflow:clip;
 border-radius:2px;
 }
+
+div.windowElemActive > div.windowUI_content > div.contained_content {
+
+  /*  background-color: #0e6f59;*/
+
+}
+/*div.windowElemMoving > div.windowUI_content > div.contained_content{
+	opacity: 0.75;
+	pointer-events: none;
+}
+*/
+div.windowElemMoving > div.windowUI_content{
+	opacity: 0.75;
+	pointer-events: none;
+}
+div.windowElemNotMoving > div.windowUI_content{
+	opacity: 1.0;
+	pointer-events: unset;
+}
